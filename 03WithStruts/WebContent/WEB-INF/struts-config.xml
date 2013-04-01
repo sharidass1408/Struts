@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE struts-config PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    
+  <!-- Form Beans Configuration -->
+  <form-beans>
+    <form-bean name="loginform"
+               type="com.nbna.actions.LoginForm"/>
+  </form-beans> 
+
+  <!-- Action Mappings Configuration -->
+  <action-mappings>
+    <action path="/login"
+            type="com.nbna.actions.LoginAction"
+            name="loginform"
+            scope="request"
+            validate="true"
+            input="/viewLogin.jsp">
+            <forward name="sucess" redirect="false"  path="/viewCustomerDetails.jsp"/>
+            <forward name="failure" redirect="false" path="/viewLogin.jsp"/>
+    </action>
+  </action-mappings>
+
+  <!-- Message Resources Configuration -->
+  <message-resources
+    parameter="com.jamesholmes.minihr.ApplicationResources"/>
+
+</struts-config>
