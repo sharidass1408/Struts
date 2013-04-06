@@ -34,9 +34,7 @@ public final class SearchAction extends Action
     // Place search results in SearchForm for access by JSP.
     searchForm.setResults(results);
 
-    // Forward control to this Action's input page.   
-    
-    return mapping.findForward("failure");
-    
+    // Forward control to this Action's input page.
+    return mapping.getInputForward();
   }
 }

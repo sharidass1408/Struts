@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE struts-config PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    
+  <!-- Form Beans Configuration -->
+  <form-beans>
+    <form-bean name="userform" type="com.nbna.controller.UserForm"/>
+    <form-bean name="loginform" type="com.nbna.controller.LoginForm"/>
+  </form-beans> 
+
+  <!-- Action Mappings Configuration -->
+  <action-mappings>
+    <action path="/Register"
+            type="com.nbna.controller.RegAction"
+            name="UserForm"
+            scope="request"
+            validate="true"
+            input="/viewRegistrationForm.jsp"  >            
+            <forward name="sucess" path="/viewLogin.jsp"/>           
+    </action>
+    <action path="/Login"
+            type="com.nbna.controller.LoginAction"
+            name="UserForm"
+            scope="request"
+            validate="true"
+            input="/viewLogin.jsp"  >    
+           <forward name="sucess" path="/viewCustomerDetails.jsp"/>         
+    </action>
+    
+  </action-mappings>
+
+  <!-- Message Resources Configuration -->
+  <message-resources
+    parameter="com.nbna.controller.ApplicationResources"/>
+
+</struts-config>
